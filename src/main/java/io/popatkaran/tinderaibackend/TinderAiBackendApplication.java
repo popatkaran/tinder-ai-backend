@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @SpringBootApplication
 public class TinderAiBackendApplication implements CommandLineRunner {
@@ -58,10 +59,10 @@ public class TinderAiBackendApplication implements CommandLineRunner {
 				profile.id(),
 				List.of(
 						new ChatMessage(
-								"1",
-								"Hello",
+								UUID.randomUUID().toString(),
+								UUID.randomUUID().toString(),
 								profile.id(),
-								"1",
+								"Hello",
 								LocalDateTime.now()
 						)
 				)

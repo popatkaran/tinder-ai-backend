@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 public record ChatMessage(
         String id,
-        String messageText,
-        String authorId,
         String conversationId,
+        String authorId,
+        String messageText,
         LocalDateTime messageTime
 ) {
 }
