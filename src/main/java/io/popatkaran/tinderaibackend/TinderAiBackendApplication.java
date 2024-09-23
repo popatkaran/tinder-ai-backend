@@ -30,6 +30,10 @@ public class TinderAiBackendApplication implements CommandLineRunner {
 	public void run(String... args) {
 		//start application
 		System.out.println("Starting TINDER AI");
+		//clear all profiles and conversations
+		profileRepository.deleteAll();
+		conversationsRepository.deleteAll();
+
 		//insert first profile
 		System.out.println("Insert first profile");
 		Profile profile = new Profile(
