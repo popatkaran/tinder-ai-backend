@@ -45,6 +45,15 @@ public class ConversationController {
         return conversation;
     }
 
+    @GetMapping("/conversations/{id}")
+    public Conversation getConversation(@PathVariable String id) {
+        return conversationsRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Unable to find conversation with Id" + id
+                ));
+    }
+
     /**
      * TODO: add request validator
      */
@@ -66,6 +75,7 @@ public class ConversationController {
                 ));
 
         // TODO: validate if authorId is authorised to add message to the conversation
+        // why above todo? can't I check the profile id from conversation? think ...
 
         conversation.messages().add(
                 new ChatMessage(
